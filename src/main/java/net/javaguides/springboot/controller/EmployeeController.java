@@ -1,5 +1,7 @@
 package net.javaguides.springboot.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import net.javaguides.springboot.Exception.ResourceNotFound;
 import net.javaguides.springboot.model.Employee;
 import net.javaguides.springboot.model.EmployeeInfo;
 import net.javaguides.springboot.repository.EmployeeInfoRepository;
@@ -46,4 +50,24 @@ public class EmployeeController {
 	public String showSuccessPage() {
 		return "success";
 	}
+	
+	@GetMapping("/employeeDetails")
+	public String employeeDetails() {
+		return "employeeDetails";
+	}
+	
+	/*@GetMapping("/employeeDetails")
+	public String employeeDetails(@RequestParam("name") String name, Model model) {
+		//Optional<Employee> employee = employeeRepository.findByName(name);
+		Employee employee = employeeRepository.findByName(name);
+		if(employee != null) {
+			EmployeeInfo employeeInfo = employeeInfoRepository.findById(employee.getEmployeeId());
+			model.addAttribute("employee", employee);
+			model.addAttribute("employeeInfo", employeeInfo);
+		}
+		/*else {
+			throw new ResourceNotFound("Employee", "Id");
+		}
+		return "employeeDetails";
+	}*/
 }

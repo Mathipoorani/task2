@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch Data by Name</title>
+</head>
+<body>
+<h2>Fetch Data by Name</h2>
+<form action="/fetch" method="get">
+    Name: <input type="text" name="name"/><br/>
+    <input type="submit" value="Fetch Data"/>
+</form>
+
+<!-- Display fetched data here -->
+<div th:if="${employee != null}">
+    <h3>Employee Information:</h3>
+    <p>Name: <span th:text="${employee.name}"></span></p>
+    <p>Age: <span th:text="${employee.age}"></span></p>
+    <p>Salary: <span th:text="${employee.salary}"></span></p>
+</div>
+<div th:if="${address != null}">
+    <h3>Address Information:</h3>
+    <p>Address: <span th:text="${employeeInfo.address}"></span></p>
+    <p>Blood Group: <span th:text="${employeeInfo.bloodGroup}"></span></p>
+    <p>Siblings: <span th:text="${employeeInfo.siblings}"></span></p>
+    <p>User Siblings? <span th:text="${employeeInfo.userSiblings ? 'Yes' : 'No'}"></span></p>
+</div>
+</body>
+</html>
