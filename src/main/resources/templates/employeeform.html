@@ -1,0 +1,18 @@
+<!-- employeeForm.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Information</title>
+</head>
+<body>
+<h2>Employee Information</h2>
+<form action="/submitEmployee" method="post" th:object="${employee}">
+    Name: <input type="text" th:field="*{name}"/><br/>
+    Age: <input type="number" th:field="*{age}"/><br/>
+    Salary: <input type="number" th:field="*{salary}"/><br/>
+
+    <input type="submit" value="Next"/>
+</form>
+</body>
+</html>

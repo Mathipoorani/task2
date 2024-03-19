@@ -1,0 +1,19 @@
+<!-- addressForm.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Address Information</title>
+</head>
+<body>
+<h2>Employee Information</h2>
+<form action="/submitEmployeeInfo" method="post" th:object="${employeeInfo}">
+    Address: <input type="text" th:field="*{address}"/><br/>
+    Blood Group: <input type="text" th:field="*{bloodGroup}"/><br/>
+    Siblings: <input type="number" th:field="*{siblings}"/><br/>
+    User Siblings? <input type="text" th:field="*{userSiblings}"/><br/>
+    <!--<input type="hidden" th:field="*{employeeId}"/>-->
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
